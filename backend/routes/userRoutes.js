@@ -17,7 +17,6 @@ userRouter.post('/signin', async(req, res) => {
     const { username, password } = req.body;
     try{
         const user = await userModel.findOne({ username })
-        console.log(user);
         if(user.password != password) return res.status(403).send("Wrong Password");
         return res.send("Signin Successfully")
     }catch(err){
